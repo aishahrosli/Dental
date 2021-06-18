@@ -329,11 +329,25 @@
           </div>
           <!-- ./col -->
         </div>
-       
-         
-          
 
+        <hr />
         
+        <div class="row">
+          <div class="col-6">
+            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+          </div>
+          <div class="col-6">
+            <div id="graphrating" style="height: 300px; width: 100%;"></div>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-12">
+            <div id="graphsecond" style="height: 300px; width: 100%;"></div>
+          </div>
+        </div>
+      
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
     </section>
@@ -392,7 +406,126 @@
 <!-- fullCalendar 2.2.5 -->
 <script src="../src/plugins/moment/moment.min.js"></script>
 <script src="../src/plugins/fullcalendar/main.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
 
+
+$(document).ready(function() {
+
+  // pie chart - % patient gender
+  $.getJSON("data_graph.php?graph=patient_gender", function (result) {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+          exportEnabled: true,
+          animationEnabled: true,
+          title:{
+            text: "% Patient Gender"
+          },
+          legend:{
+            cursor: "pointer",
+            itemclick: explodePie
+          },
+          data: [{
+            type: "pie",
+            showInLegend: true,
+            toolTipContent: "{name}: <strong>{y}%</strong>",
+            indexLabel: "{name} - {y}%",
+            dataPoints: result
+          }]
+        });
+        chart.render();
+
+  });
+
+
+    // pie chart - % patient gender
+    $.getJSON("data_graph.php?graph=patient_gender", function (result) {
+
+      var chart = new CanvasJS.Chart("graphrating", {
+            exportEnabled: true,
+            animationEnabled: true,
+            title:{
+              text: "Rating"
+            },
+            legend:{
+              cursor: "pointer",
+              itemclick: explodePie
+            },
+            data: [{
+              type: "pie",
+              showInLegend: true,
+              toolTipContent: "{name}: <strong>{y}%</strong>",
+              indexLabel: "{name} - {y}%",
+              dataPoints: result
+            }]
+          });
+          chart.render();
+
+    });
+
+
+  // bar chart - based on date and time slot
+  $.getJSON("data_graph.php?graph=date_and_time", function (result) {
+
+    var graphsecond = new CanvasJS.Chart("graphsecond", {
+      animationEnabled: true,
+      theme: "light2", // "light1", "light2", "dark1", "dark2"
+      title:{
+        text: "based on date and time slot"
+      },
+      axisY: {
+        title: "Total Appointment"
+      },
+      data: [{        
+        type: "column",  
+        showInLegend: true, 
+        legendMarkerColor: "grey",
+        legendText: "Data Per Date",
+        toolTipContent: "{label}: <strong>{y}</strong>",
+        indexLabel: "{y}",
+        dataPoints: result
+      }]
+    });
+    graphsecond.render();
+
+
+  });
+
+})
+
+
+function explodePie (e) {
+	if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+	} else {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+	}
+	e.chart.render();
+}
+
+
+
+function toggleDataSeries(e) {
+	if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+		e.dataSeries.visible = false;
+	}
+	else {
+		e.dataSeries.visible = true;
+	}
+	chart.render();
+}
+
+
+function explodePie (e) {
+	if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+	} else {
+		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+	}
+	e.chart.render();
+
+}
+</script>
 
 </body>
 </html>
