@@ -26,7 +26,7 @@ if(isset($_POST["login"]))
                           $_SESSION["username"] = $username;
                            $_SESSION["role"] = "PATIENT";  
                           
-                          header("location:patient/profile.php");  
+                          header("location:patient/login.php");  
                      }  
                      else  
                      {  

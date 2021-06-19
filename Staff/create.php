@@ -117,18 +117,8 @@ var_dump(mysqli_error($db));exit();
   <link rel="icon" type="image/png" href="../src/dist/img/icon.png">
   <title> Completed Appointment</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../src/plugins/fontawesome-free/css/all.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../src/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../src/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="../src/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../src/dist/css/adminlte.min.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <?php require "header.php"; ?>
+   
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -402,7 +392,8 @@ $('#m_dynamic').append('<tr id="m_row' + m + '">                                
 
              <br><br>
 
-              <input type="submit" class="btn badge-info float-left" name="save" value="SUBMIT">
+               <input type="button" class="btn badge-danger" name="Cancel" value="Cancel" onclick="goBack();">  
+                <input type="submit" class="btn badge-info float-right" name="save" value="Submit" onclick="return confirm('Are you sure?');">  
  
  </div></form>
               </div>
@@ -434,44 +425,5 @@ $('#m_dynamic').append('<tr id="m_row' + m + '">                                
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="../src/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../src/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- DataTables  & Plugins -->
-<script src="../src/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../src/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../src/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../src/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../src/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../src/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../src/plugins/jszip/jszip.min.js"></script>
-<script src="../src/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../src/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../src/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../src/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../src/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../src/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../src/dist/js/demo.js"></script>
-<!-- Page specific script -->
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
 </body>
 </html>

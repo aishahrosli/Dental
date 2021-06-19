@@ -82,12 +82,12 @@
      <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false"> 
 
-        <!-- Dashboard -->    
+        <!-- Home -->    
         <li class="nav-item">
             <a href="index.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-home"></i>
               <p>
-                Dashboard                
+                Home                
               </p>
             </a>
         </li>
