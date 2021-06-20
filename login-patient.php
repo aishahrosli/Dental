@@ -20,7 +20,7 @@
 </head>
 <body class="hold-transition login-page" style="background-color: #6ba1b0 ;">
     
-    <!-- preloader -->
+  <!-- preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
     <img class="animation__shake" src="img/icon5.png"  alt="AdminLTELogo" height="100" width="100"><B>Dental Clinic</B> 
   </div>
@@ -33,7 +33,7 @@
       <b>Dental Clinic Appointment System</b>
     </div><br>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p><br>
+      <p class="login-box-msg">Sign in to start booking the appointment</p><br>
 
       <form action="login-patient.php" method="post">
         <div class="input-group mb-3">
@@ -95,7 +95,7 @@ if(isset($_POST["login"]))
  {  
       if(empty($_POST["username"]) || empty($_POST["password"]))  
       {  
-           echo '<script>alert("Both Fields are required"); window.location.href="index.php"; </script>';  
+           echo '<script>alert("Both Fields are required"); window.location.href="login-patient.php"; </script>';  
 
       }  
       else  
