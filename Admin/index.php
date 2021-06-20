@@ -439,23 +439,27 @@ $(document).ready(function() {
 
 
     // pie chart - % patient gender
-    $.getJSON("data_graph.php?graph=patient_gender", function (result) {
+    $.getJSON("data_graph.php?graph=rating_per_customer", function (result) {
 
       var chart = new CanvasJS.Chart("graphrating", {
             exportEnabled: true,
             animationEnabled: true,
             title:{
-              text: "Rating"
+              text:"Rating Per Customer"
             },
-            legend:{
-              cursor: "pointer",
-              itemclick: explodePie
+            axisX:{
+              interval: 1
+            },
+            axisY2:{
+              interlacedColor: "rgba(1,77,101,.2)",
+              gridColor: "rgba(1,77,101,.1)",
+              title: "Number of star"
             },
             data: [{
-              type: "pie",
-              showInLegend: true,
-              toolTipContent: "{name}: <strong>{y}%</strong>",
-              indexLabel: "{name} - {y}%",
+              type: "bar",
+              name: "Star",
+              axisYType: "secondary",
+              color: "#014D65",
               dataPoints: result
             }]
           });
