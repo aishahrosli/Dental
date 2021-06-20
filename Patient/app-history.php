@@ -22,9 +22,15 @@ $userID=$auth['user_ID'];
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" sizes="76x76" href="../src/dist/img/icon.png">
   <link rel="icon" type="image/png" href="../src/dist/img/icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title> Appointment List</title>
 
   <?php require "header.php" ?>
+  <style>
+  .checked {
+  color: orange;
+}
+  </style>
  
 </head>
 <body class="hold-transition sidebar-mini">
@@ -190,7 +196,23 @@ $userID=$auth['user_ID'];
                     <td><?php echo date("d-M-Y", strtotime($data['date']))?></td>
                     <td><?php echo ucwords($data['time'])?></td> 
                     <td><?php echo ucwords($data['treatment_name'])?></td>                    
-                    <td><?php echo ($data['rating'])?><br><?php echo  ($data['feedback'])?></</td>
+                    <td>
+                    <?php 
+                    // echo ($data['rating']); 
+                    if ($data['rating'] > 0) { 
+                      for ($i=1; $i<=$data['rating']; $i++) { ?>
+                        <span class="fa fa-star checked"></span>
+                      <?php
+                      }
+                    } else {
+                      echo "No rating";
+                    }
+
+                    ?>
+                    <br>
+                    <?php echo  ($data['feedback'])?>
+                    
+                    </td>
                     <td><a href="rating.php?id=<?= $data['app_ID'] ?>"><input type="button" class="btn badge-success" name="view" value="Rate"></a></td> 
                     <td>
                       <a href="invoice.php?id=<?= $data['bill_id'] ?>"><input type="button" class="btn badge-success" name="view" value="View Invoice"></a>

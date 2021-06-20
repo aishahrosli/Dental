@@ -1,5 +1,8 @@
  <?php
  require "auth.php" ;
+ require_once $_SERVER['DOCUMENT_ROOT']."/Dental/assets/vendor/phpmailer/phpmailer/src/PHPMailer.php"; //PHPMailer Object 
+ require_once $_SERVER['DOCUMENT_ROOT']."/Dental/assets/vendor/phpmailer/phpmailer/src/SMTP.php"; //PHPMailer Object 
+ require_once $_SERVER['DOCUMENT_ROOT']."/Dental/assets/vendor/phpmailer/phpmailer/src/Exception.php"; //PHPMailer Object 
   
  $id = $_GET['id'];
   
@@ -22,6 +25,82 @@
 
   ?>
 
+
+<?php
+ 
+if(isset($_POST['save'])){
+  
+  $id = $_POST['id'];
+  $date = date('Y-m-d',strtotime($_POST['date']));
+  $time = $_POST['time']; 
+  $status= $_POST['status'];
+  $userid= $_POST['userid'];
+  $treatment= $_POST['treatment'];
+
+  $sql = "SELECT * FROM patient WHERE user_ID = $userid";
+  $result = $db->query($sql);
+  $row = $result->fetch_assoc();
+
+  $emailaddress = $row['email'];
+  // $emailaddress = 'evmanagementsys@gmail.com';
+
+  $mail = new PHPMailer\PHPMailer\PHPMailer();
+  $mail->IsSMTP(); 
+
+  $mail->CharSet="UTF-8";
+  $mail->Host = "smtp.gmail.com";
+  $mail->SMTPDebug = 0; 
+  $mail->Port = 465 ; //465 or 587
+  // $mail->Port = 587 ; //465 or 587
+
+  $mail->SMTPSecure = 'ssl';  
+  // $mail->SMTPSecure = 'tls';  
+  $mail->SMTPAuth = true; 
+  $mail->IsHTML(true);
+
+  $mail->SMTPOptions = array(
+      'ssl' => array(
+          'verify_peer' => false,
+          'verify_peer_name' => false,
+          'allow_self_signed' => true
+      )
+  );
+
+  //Authentication
+  $mail->Username = "dentalclinix1@gmail.com";  //Change email authorization
+  $mail->Password = "psm@2021";
+
+  //Set Params
+  $mail->SetFrom("dentalclinix1@gmail.com", "Dental Clinix 1");
+  $mail->AddAddress($emailaddress);
+  $mail->Subject = "Dental Appointment";
+  $mail->Body = "Your appointment has been approved. Below the details your appointment: <br /> Appointment date : $date <br />Appointment Timeslot : $time<br />Treatment :$treatment <br/>Status : Approved <br/><br/> Thank You";
+
+  if(!$mail->Send()) {
+      // echo "Mailer Error: " . $mail->ErrorInfo;
+    $statusemail = "Fail to sent email";
+
+  } else {
+    $statusemail =  "Message has been sent";
+  }
+
+  $sql = mysqli_query($db,"UPDATE appointment SET date = '$date', time = '$time', status='$status'  WHERE app_ID='$id'") or die(mysqli_error());
+  
+
+  if($sql == TRUE) 
+    {
+    echo '<script language = "javascript">';
+    echo 'alert("Appointment Update Successfully");';
+    echo 'window.location.href ="app-upcoming.php";';
+    echo '</script>'; 
+
+    }
+    else {  
+    echo "Error : " .$sql. "<br>" .$db -> error; }
+  }
+      $db -> close();
+  
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -317,6 +396,7 @@
 
                   
                   <br>
+                  <input type="hidden" name="userid" id="userid" value="<?php echo $data['user_ID']; ?>">
                   <input type="checkbox" id="status" name="status" value="2" required=""> &nbsp
                   <label for="approved">Approved</label><br>
  
@@ -418,34 +498,7 @@
    
 </script>
 
-<?php
- 
-if(isset($_POST['save'])){
-  
 
-  
-  $id = $_POST['id'];
-  $date = date('Y-m-d',strtotime($_POST['date']));
-  $time = $_POST['time']; 
-  $status= $_POST['status'];
-
-  
-
-  $sql = mysqli_query($db,"UPDATE appointment SET date = '$date', time = '$time', status='$status'  WHERE app_ID='$id'") or die(mysqli_error());
-  
-
-  if($sql == TRUE) 
-    {
-    echo '<script language = "javascript">';
-    echo 'alert("Appointment Update Successfully");';
-    echo 'window.location.href ="app-upcoming.php";';
-    echo '</script>'; 
-    }
-    else {  
-    echo "Error : " .$sql. "<br>" .$db -> error; }
-      }
-      $db -> close();
-    ?>
 
 </body>
 </html>
