@@ -140,7 +140,7 @@
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-info" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRegister <span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
   </div>
 </div>
- <center><a href="index.php" class="text-center">I already have an account</a></center>
+ <center><a href="login-patient.php" class="text-center">I already have an account</a></center>
 </fieldset>
 </form>
 </div>

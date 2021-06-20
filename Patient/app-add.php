@@ -131,7 +131,7 @@ mysqli_close($db);
      <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false"> 
 
-        <!-- Home -->    
+        <!-- Home  
         <li class="nav-item">
             <a href="index.php" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
@@ -139,7 +139,7 @@ mysqli_close($db);
                 Home                
               </p>
             </a>
-        </li>
+        </li>-->   
 
         <!-- Profile -->
          <li class="nav-item">
@@ -156,7 +156,7 @@ mysqli_close($db);
             <a href="app-list.php" class="nav-link">
               <i class="far fa-calendar-alt nav-icon"></i>
               <p>
-                All Appointment
+                 Appointment
               </p>
             </a>           
          </li>
@@ -166,10 +166,21 @@ mysqli_close($db);
             <a href="#" class="nav-link active">
               <i class="fas fa-plus-square nav-icon"></i>
               <p>
-                Add Appointment
+                Book Appointment
               </p>
             </a>           
-         </li>             
+         </li>       
+
+         <!-- History -->
+         <li class="nav-item">
+            <a href="app-history.php" class="nav-link">
+              <i class="fas fa-history nav-icon"></i>
+              <p>
+                 Appointment History
+              </p>
+            </a>           
+         </li> 
+
         </ul>
      </nav>
       <!-- /.sidebar-menu -->
@@ -227,17 +238,7 @@ mysqli_close($db);
 
                   <select name="time" id="time" placeholder = "Choose your preffered session" class="form-control select2" style="width: 100%;">
                     
-                    <option value="">Select Time Slot</option>
-                    <!-- <option value="8.00am">8.00am-9.00am</option>
-                    <option value="9.00am">9.00am-10.00am</option>
-                    <option value="10.00am">10.00am-11.00am</option>
-                    <option value="11.00pm">11.00am-12.00pm</option>
-                    <option value="11.00pm">12.00pm-1.00pm</option>
-                    <option value="2.00pm">2.00pm-3.00pm</option>
-                    <option value="3.00pm">3.00pm-4.00pm</option>
-                    <option value="4.00pm">4.00pm-5.00pm</option> -->
-
-
+                    <option value="">Select Time Slot</option>                
                                          
                   </select>
                   <!-- /.input group -->
@@ -280,13 +281,7 @@ mysqli_close($db);
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; Nurul Aishah Binti Rosli B031910219 .</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
-    </div>
-  </footer>
+  <?php require "footer.php"?>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -296,63 +291,10 @@ mysqli_close($db);
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="../src/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../src/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Select2 -->
-<script src="../src/plugins/select2/js/select2.full.min.js"></script> 
-<!-- InputMask -->
-<script src="../src/plugins/moment/moment.min.js"></script> 
-<!-- date-range-picker -->
-<script src="../src/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- bootstrap color picker -->
-<script src="../src/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="../src/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Bootstrap Switch -->
-<script src="../src/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-<!-- BS-Stepper -->
-<script src="../src/plugins/bs-stepper/js/bs-stepper.min.js"></script>
-<!-- TOASTR -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-<!-- dropzonejs -->
-<!-- <script src="../src/plugins/dropzone/min/dropzone.min.js"></script> -->
-<!-- AdminLTE App -->
-<script src="../src/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../src/dist/js/demo.js"></script>
+
  
 <!-- Page specific script -->
 <script>
-
-   $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
-
-
-    toastr.options = {
-      "closeButton": true,
-      "debug": false,
-      "newestOnTop": true,
-      "progressBar": true,
-      "positionClass": "toast-top-right",
-      "preventDuplicates": true,
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "8000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
-    }
 
 
     //Date picker
@@ -413,11 +355,7 @@ mysqli_close($db);
 
 
     
-    $("input[data-bootstrap-switch]").each(function(){
-      $(this).bootstrapSwitch('state', $(this).prop('checked'));
-    })
-
-  })
+   
    
 </script>
 

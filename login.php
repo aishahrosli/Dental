@@ -7,16 +7,24 @@
   <link rel="icon" type="image/png" href="../src/dist/img/icon.png">
   <title>Dental | Login</title>
 
-  <!-- Google Font: Source Sans Pro -->
+   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="src/plugins/fontawesome-free/css/all.min.css">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="src/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> 
   <!-- Theme style -->
   <link rel="stylesheet" href="src/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+   
 </head>
 <body class="hold-transition login-page">
+    
+    <!-- preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="img/icon5.png"  alt="AdminLTELogo" height="100" width="100"><B>Dental Clinic</B> 
+  </div>
+
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
@@ -69,11 +77,13 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="src/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="src/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="src/dist/js/adminlte.min.js"></script>
+<script src="dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 </body>
 
 <?php 

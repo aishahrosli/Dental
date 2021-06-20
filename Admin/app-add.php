@@ -76,7 +76,7 @@ if(isset($_POST['save']))
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" sizes="76x76" href="../src/dist/img/icon.png">
   <link rel="icon" type="image/png" href="../src/dist/img/icon.png">
-  <title> Add Appointment</title>
+  <title> create appointment</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -198,12 +198,12 @@ if(isset($_POST['save']))
             </ul>
          </li>
 
-         <!-- Add Appointment -->
+         <!-- create appointment -->
          <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="fas fa-plus-square nav-icon"></i>
               <p>
-                Add Appointment
+                create appointment
               </p>
             </a>           
          </li>
@@ -277,7 +277,7 @@ if(isset($_POST['save']))
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Appointment</a></li>
-              <li class="breadcrumb-item active">Add Appointment</li>
+              <li class="breadcrumb-item active">Create Appointment</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

@@ -10,13 +10,10 @@ function appStatus($status){
   return $statuses[$status];
 }
 
- 
-
-
 
 $userID=$auth['user_ID'];  
 
-  $query= mysqli_query($db, "SELECT * FROM appointment as a LEFT JOIN treatment as t ON t.treatment_ID = a.treatment_ID WHERE a.user_ID = '$userID'");
+  $query= mysqli_query($db, "SELECT * FROM appointment as a LEFT JOIN treatment as t ON t.treatment_ID = a.treatment_ID WHERE a.user_ID = '$userID'  AND NOT a.status = '3' ");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,16 +24,8 @@ $userID=$auth['user_ID'];
   <link rel="icon" type="image/png" href="../src/dist/img/icon.png">
   <title> Appointment List</title>
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../src/plugins/fontawesome-free/css/all.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../src/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../src/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="../src/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../src/dist/css/adminlte.min.css">
+  <?php require "header.php" ?>
+ 
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -86,7 +75,7 @@ $userID=$auth['user_ID'];
      <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false"> 
 
-        <!-- Home -->    
+        <!-- Home    
         <li class="nav-item">
             <a href="index.php" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
@@ -94,7 +83,7 @@ $userID=$auth['user_ID'];
                 Home                
               </p>
             </a>
-        </li>
+        </li>--> 
 
         <!-- Profile -->
          <li class="nav-item">
@@ -111,7 +100,7 @@ $userID=$auth['user_ID'];
             <a href="app-list.php" class="nav-link active">
               <i class="far fa-calendar-alt nav-icon"></i>
               <p>
-                All Appointment
+                Appointment
               </p>
             </a>           
          </li>
@@ -121,10 +110,21 @@ $userID=$auth['user_ID'];
             <a href="app-add.php" class="nav-link">
               <i class="fas fa-plus-square nav-icon"></i>
               <p>
-                Add Appointment
+                Book Appointment
               </p>
             </a>           
-         </li>             
+         </li>
+
+        <!-- History -->
+         <li class="nav-item">
+            <a href="app-history.php" class="nav-link">
+              <i class="fas fa-history nav-icon"></i>
+              <p>
+                 Appointment History
+              </p>
+            </a>           
+         </li>    
+
         </ul>
      </nav>
       <!-- /.sidebar-menu -->
@@ -161,7 +161,7 @@ $userID=$auth['user_ID'];
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">List of Appointment</h3>
+                <h3 class="card-title">List of Booked Appointment</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

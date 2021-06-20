@@ -10,7 +10,7 @@
  
   return $statuses[$status];
 }
-
+ 
  
 
    $query = "SELECT * FROM appointment as a LEFT JOIN patient as p ON a.user_ID=p.user_ID LEFT JOIN treatment as t ON t.treatment_ID = a.treatment_ID  WHERE status = 1 ORDER BY date ASC ";
@@ -139,12 +139,12 @@
             </ul>
          </li>
 
-         <!-- Add Appointment -->
+         <!-- Create Appointment -->
          <li class="nav-item">
             <a href="app-list.php" class="nav-link">
               <i class="fas fa-plus-square nav-icon"></i>
               <p>
-                Add Appointment
+                Create Appointment
               </p>
             </a>           
          </li>

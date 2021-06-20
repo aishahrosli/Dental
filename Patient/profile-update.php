@@ -3,7 +3,7 @@ session_start();
 
 if(isset($_POST['save'])){
 
-  require "../config.php";
+  require "../config.php"; 
 
   $fullname= $_POST['fullname'];
   $IC= $_POST['IC'];

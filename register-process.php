@@ -31,7 +31,7 @@ $address=$_POST['address'];
 	if(mysqli_query($con, $sql))
 	{
 		$_SESSION['user_id']=$row['user_ID'];
-		header ('Location:index.php');
+		header ('Location:login-patient.php');
     	echo "Records inserted successfully";
 
 } 	else{

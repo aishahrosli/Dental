@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" sizes="76x76" href="../src/dist/img/icon.png">
   <link rel="icon" type="image/png" href="../src/dist/img/icon.png">
-  <title>Add Appointment</title>
+  <title>Appointment List</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -124,12 +124,12 @@
             </ul>
          </li>
 
-         <!-- Add Appointment -->
+         <!-- Create Appointment -->
          <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="fas fa-plus-square nav-icon"></i>
               <p>
-                Add Appointment
+                Create Appointment
               </p>
             </a>           
          </li>

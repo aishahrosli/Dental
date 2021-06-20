@@ -247,11 +247,11 @@
   });
 
  var data = {
-  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "AUg", "Sep", "Oct", "Nov", "Dec"],
+  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
   datasets: [{
-    label: "Dataset #1",
-    backgroundColor: "rgba(255,99,132,0.2)",
-    borderColor: "rgba(255,99,132,1)",
+    label: " Dental Income (RM)",
+    backgroundColor: "skyblue",
+    borderColor: "slateblue",
     borderWidth: 2,
     hoverBackgroundColor: "rgba(255,99,132,0.4)",
     hoverBorderColor: "rgba(255,99,132,1)",

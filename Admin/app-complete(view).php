@@ -42,7 +42,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" sizes="76x76" href="../src/dist/img/icon.png">
   <link rel="icon" type="image/png" href="../src/dist/img/icon.png">
-  <title> Add Appointment</title>
+  <title> Completed Appointment</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -164,12 +164,12 @@
             </ul>
          </li>
 
-         <!-- Add Appointment -->
+         <!-- Create Appointment -->
          <li class="nav-item">
             <a href="app-add.php" class="nav-link">
               <i class="fas fa-plus-square nav-icon"></i>
               <p>
-                Add Appointment
+                Create Appointment
               </p>
             </a>           
          </li>

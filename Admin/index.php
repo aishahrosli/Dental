@@ -176,12 +176,12 @@
             </ul>
          </li>
 
-         <!-- Add Appointment -->
+         <!-- Create Appointment -->
          <li class="nav-item">
             <a href="app-list.php" class="nav-link">
               <i class="fas fa-plus-square nav-icon"></i>
               <p>
-                Add Appointment
+                Create Appointment
               </p>
             </a>           
          </li>

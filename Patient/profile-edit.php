@@ -7,25 +7,8 @@
   <link rel="icon" sizes="76x76" href="../src/dist/img/icon.png">
   <link rel="icon" type="image/png" href="../src/dist/img/icon.png">
   <title>Dental | Dashboard</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../src/plugins/fontawesome-free/css/all.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="../srchttps://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="../src/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../src/dist/css/adminlte.min.css">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="../src/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="../srcplugins/daterangepicker/daterangepicker.css">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="../src/plugins/select2/css/select2.min.css">
-  <link rel="stylesheet" href="../src/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
-
+   
+  <?php require "header.php"?>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -82,7 +65,7 @@
      <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false"> 
 
-        <!-- Home -->    
+        <!-- Home  
         <li class="nav-item">
             <a href="index.php" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
@@ -90,7 +73,7 @@
                 Home                
               </p>
             </a>
-        </li>
+        </li> -->  
 
         <!-- Profile -->
          <li class="nav-item menu-open">
@@ -107,7 +90,7 @@
             <a href="app-list.php" class="nav-link">
               <i class="far fa-calendar-alt nav-icon"></i>
               <p>
-                All Appointment
+                Appointment
               </p>
             </a>           
          </li>
@@ -117,10 +100,21 @@
             <a href="app-add.php" class="nav-link">
               <i class="fas fa-plus-square nav-icon"></i>
               <p>
-                Add Appointment
+                Book Appointment
               </p>
             </a>           
-         </li>             
+         </li>
+
+        <!-- History -->
+         <li class="nav-item">
+            <a href="app-history.php" class="nav-link">
+              <i class="fas fa-history nav-icon"></i>
+              <p>
+                 Appointment History
+              </p>
+            </a>           
+         </li>    
+
         </ul>
      </nav>
       <!-- /.sidebar-menu -->
@@ -211,7 +205,7 @@
 
              
                   <input type="button" class="btn badge-danger" name="Cancel" value="Cancel" onclick="goBack();">  
-                <input type="submit" class="btn badge-info float-right" name="save" value="Submit" onclick="return confirm('Are you sure?');">  
+                <input type="submit" class="btn badge-info float-right" name="save" value="Submit" onclick="return confirm('Are you sure?');">   
                  
               </form>
           </div>
@@ -226,13 +220,8 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; Nurul Aishah Binti Rosli B031910219 .</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
-    </div>
-  </footer>
+  
+  <?php require "footer.php" ?>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -242,61 +231,7 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="../src/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="../src/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="../src/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- daterangepicker -->
-<script src="../src/plugins/moment/moment.min.js"></script>
-<script src="../src/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Select2 -->
-<script src="../src/plugins/select2/js/select2.full.min.js"></script> 
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="../src/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="../src/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../src/dist/js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../src/dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../src/dist/js/pages/dashboard.js"></script>
 
-<!-- Page specific script -->
-<script>
-  $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
-
-
-    //Date picker
-    $('#reservationdate').datetimepicker({
-        format: 'D MMMM yyyy',
-    
-    });   
-
-    
-    $("input[data-bootstrap-switch]").each(function(){
-      $(this).bootstrapSwitch('state', $(this).prop('checked'));
-    })
-
-  })
-  function goBack() {
-  window.history.back()
-}
-   
-</script>
 
 </body>
 </html>
